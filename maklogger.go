@@ -122,11 +122,11 @@ func (mk *MakLogger) log(level Level, color Color, msg string, fields ...Field) 
 
 	// Main message without PID (according to specification)
 	message := fmt.Sprintf("%s %s │ %s │ %s │ %s %s",
-		ColorizeIfEnabled("🕒", mk.colorsEnabled, BrightGreen),
+		ColorizeIfEnabled("🕒 ", mk.colorsEnabled, BrightGreen),
 		ColorizeIfEnabled(timestamp, mk.colorsEnabled, Green),
 		mk.getColoredLevel(level),
 		module,
-		ColorizeIfEnabled("💬", mk.colorsEnabled, BrightWhite),
+		ColorizeIfEnabled("💬 ", mk.colorsEnabled, BrightWhite),
 		mk.getColoredMessage(level, msg),
 	)
 
@@ -136,7 +136,7 @@ func (mk *MakLogger) log(level Level, color Color, msg string, fields ...Field) 
 	if len(fields) > 0 {
 		fieldStr := mk.formatFieldsAsJSON(fields)
 		fmt.Printf("%s %s\n%s\n",
-			ColorizeIfEnabled("📊", mk.colorsEnabled, BrightMagenta),
+			ColorizeIfEnabled("📊 ", mk.colorsEnabled, BrightMagenta),
 			ColorizeIfEnabled("Fields:", mk.colorsEnabled, BrightWhite),
 			ColorizeIfEnabled(fieldStr, mk.colorsEnabled, BrightBlack), // gray color for JSON
 		)
@@ -207,27 +207,27 @@ func (mk *MakLogger) getColoredLevel(level Level) string {
 	switch level {
 	case LevelInfo:
 		return fmt.Sprintf("%s %s",
-			ColorizeIfEnabled("📝", mk.colorsEnabled, BrightBlue),
+			ColorizeIfEnabled("📝 ", mk.colorsEnabled, BrightBlue),
 			ColorizeIfEnabled("INFO    ", mk.colorsEnabled, BoldWhite, BgBlue))
 	case LevelSuccess:
 		return fmt.Sprintf("%s %s",
-			ColorizeIfEnabled("✅", mk.colorsEnabled, BrightGreen),
+			ColorizeIfEnabled("✅ ", mk.colorsEnabled, BrightGreen),
 			ColorizeIfEnabled("SUCCESS ", mk.colorsEnabled, BoldWhite, BgGreen))
 	case LevelDebug:
 		return fmt.Sprintf("%s %s",
-			ColorizeIfEnabled("🐛", mk.colorsEnabled, BrightMagenta),
+			ColorizeIfEnabled("🐛 ", mk.colorsEnabled, BrightMagenta),
 			ColorizeIfEnabled("DEBUG   ", mk.colorsEnabled, BoldWhite, BgMagenta))
 	case LevelCritical:
 		return fmt.Sprintf("%s %s",
-			ColorizeIfEnabled("🛑", mk.colorsEnabled, BrightRed),
+			ColorizeIfEnabled("🛑 ", mk.colorsEnabled, BrightRed),
 			ColorizeIfEnabled("CRITICAL", mk.colorsEnabled, BoldWhite, BgBrightRed))
 	case LevelError:
 		return fmt.Sprintf("%s %s",
-			ColorizeIfEnabled("❌", mk.colorsEnabled, BrightRed),
+			ColorizeIfEnabled("❌ ", mk.colorsEnabled, BrightRed),
 			ColorizeIfEnabled("ERROR   ", mk.colorsEnabled, BoldWhite, BgRed))
 	case LevelWarn:
 		return fmt.Sprintf("%s %s",
-			ColorizeIfEnabled("⚠️", mk.colorsEnabled, BrightYellow),
+			ColorizeIfEnabled("⚠️ ", mk.colorsEnabled, BrightYellow),
 			ColorizeIfEnabled("WARNING ", mk.colorsEnabled, Bold, BgYellow))
 	}
 

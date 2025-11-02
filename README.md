@@ -10,7 +10,7 @@ A lightweight, colorful, and beautiful logging library for Go applications with 
 
 - 🎨 **Beautiful colored output** with emoji icons
 - 📊 **Structured field logging** with JSON formatting
-- 🖥️ **Cross-platform support** (Windows, Linux, macOS)
+- 🖥️ **Cross-platform support** (Windows, Linux)
 - ⚡ **High performance** with minimal overhead
 - 🔧 **Simple API** - easy to integrate
 - 🎯 **Multiple log levels** (Info, Success, Debug, Warning, Error, Critical)
@@ -145,7 +145,6 @@ func (mk *MakLogger) SetColorsEnabled(enabled bool)
 
 - ✅ **Windows** - Automatic ANSI color support for CMD and PowerShell
 - ✅ **Linux** - Native ANSI color support
-- ✅ **macOS** - Native ANSI color support
 
 ## 🔧 Requirements
 
